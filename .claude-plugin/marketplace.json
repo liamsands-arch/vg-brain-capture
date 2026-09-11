@@ -1,0 +1,23 @@
+{
+  "name": "vg-brain-capture",
+  "description": "Voyageur Group — VG Brain automatic session capture. A restricted add-on, kept in its own marketplace so it never appears in the plugin list of people who should not have it.",
+  "owner": {
+    "name": "Voyageur Group",
+    "email": "hello@vg-brain.com"
+  },
+  "plugins": [
+    {
+      "name": "vg-brain-capture",
+      "source": "./plugins/vg-brain-capture",
+      "version": "0.36.0",
+      "description": "Automatic session capture for VG Brain. Uploads every Claude Code session to your OWN notes at session end, before a compact, and on catch-up after a missed upload. Nothing is shared by being captured. Install ALONGSIDE the vg-brain plugin, never instead of it: the base plugin carries the connection, the search tools and the session-start context, and this adds only the uploading.",
+      "author": {
+        "name": "Voyageur Group",
+        "email": "hello@vg-brain.com"
+      },
+      "homepage": "https://vg-brain.com",
+      "license": "UNLICENSED",
+      "keywords": ["vg-brain", "capture", "hooks"]
+    }
+  ]
+}

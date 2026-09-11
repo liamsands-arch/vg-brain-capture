@@ -1,0 +1,46 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/runtime/vgb",
+            "args": [
+              "hook",
+              "session-catchup"
+            ]
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/runtime/vgb",
+            "args": [
+              "hook",
+              "session-end"
+            ]
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/runtime/vgb",
+            "args": [
+              "hook",
+              "pre-compact"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

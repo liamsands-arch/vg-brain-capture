@@ -1,0 +1,17 @@
+{
+  "name": "vg-brain-capture",
+  "version": "0.35.0",
+  "description": "VG Brain automatic session capture. RESTRICTED ADD-ON, install only if you have been told to. Adds back the background hooks that upload every Claude Code session to your own VG Brain notes at session end, before a compact, and on catch-up after a missed upload. The base vg-brain plugin does NOT capture anything; this is the only component that does. Install alongside vg-brain, never instead of it.",
+  "author": {
+    "name": "Voyageur Group",
+    "email": "hello@vg-brain.com"
+  },
+  "homepage": "https://vg-brain.com",
+  "license": "UNLICENSED",
+  "keywords": [
+    "vg-brain",
+    "capture",
+    "hooks",
+    "restricted"
+  ]
+}
