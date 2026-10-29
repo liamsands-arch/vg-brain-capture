@@ -1,55 +1,43 @@
-# vg-brain-capture
+# vg-brain-capture (VG Brain autosave)
 
-Automatic session capture for VG Brain. This is a restricted add-on. Do not install
-it unless Liam Sands has given it to you by name.
+VG Brain autosave. Restricted: do not install it unless Liam Sands has given it to
+you by name. The server accepts uploads only from people on its autosave list.
 
 ## What it does
 
-The base `vg-brain` plugin gives you the VG Brain tools: search, read, save on
-request, share, groups. It captures nothing on its own. Every save is something you
-or Claude did deliberately.
-
-This add-on layers four background hooks on top of that:
+The brain tools (search, save, share, teams) come from the **VG Brain connector**
+in claude.ai. This plugin adds what a connector can't: hooks that run on your
+computer.
 
 | Hook | When it runs | What it does |
 |---|---|---|
-| `session-start` | a chat opens | announces where the chat will save, and registers the session id |
+| `session-start` | a chat opens | loads your brain context and registers the session |
 | `session-catchup` | a chat opens | uploads any earlier session whose upload did not complete |
 | `pre-compact` | before a long chat is compacted | uploads the transcript so nothing is lost to compaction |
 | `session-end` | a chat closes | uploads the session transcript |
 
-With this installed, every Claude Code session you run is written to your own VG
-Brain notes without you asking.
+It also sets the **VG Assistant** output style.
+
+Its connection to vg-brain.com (`/autosave/mcp`) is sign-in only and offers no
+tools. The hooks use that sign-in to reach your notes.
 
 ## Where the captured notes go
 
-To your own notes, and nowhere else. Capture and sharing are separate:
+To your own notes, and nowhere else. Capture and sharing are separate: nobody else
+can read a captured session until you share it, either one note at a time or by
+granting someone standing access to everything you write.
 
-- Capture puts the session in your personal space.
-- Nobody else can read it until you share it, either by sharing a single note or
-  by granting someone standing access to everything you write.
-
-If a chat should not be saved at all, say so in the chat ("don't save this",
-"skip this chat") and it is excluded. If something is genuinely confidential, use
-an incognito chat instead, which never reaches the Brain in the first place.
+If a chat should not be saved, say so in the chat ("don't save this", "skip this
+chat") and it is excluded.
 
 ## Install
 
-Install it alongside `vg-brain`, never instead of it. This add-on carries no MCP
-server, no skills, and no output style, so on its own it captures into nothing.
+Uninstall the old `vg-brain` plugin first, and make sure the VG Brain connector is
+connected in claude.ai. Then:
 
 ```
-/plugin marketplace add liamsands-arch/vg-brain-universal
-/plugin install vg-brain@vg-brain-universal
-/plugin install vg-brain-capture@vg-brain-universal
+/plugin marketplace add liamsands-arch/vg-brain-capture
+/plugin install vg-brain-capture@vg-brain-capture
 ```
 
-To stop automatic capture, remove this plugin. The base `vg-brain` plugin keeps
-working, minus the background uploads.
-
-## Why it ships separately
-
-Automatic capture used to be part of the base plugin. It was split out when the
-default saving destination moved from a shared team space to each person's own
-notes, so that background capture is something a person is handed on purpose
-rather than something that arrives with the tools.
+To stop automatic capture, remove this plugin. The connector keeps working.

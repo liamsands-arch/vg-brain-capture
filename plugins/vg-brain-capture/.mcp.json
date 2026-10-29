@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vg-brain-autosave": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/runtime/vgb",
+      "args": ["connect", "https://vg-brain.com/autosave/mcp"]
+    }
+  }
+}
